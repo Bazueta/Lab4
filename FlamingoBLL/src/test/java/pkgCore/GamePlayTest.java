@@ -11,27 +11,28 @@ import org.junit.Test;
 
 public class GamePlayTest {
 
-	private HashMap<UUID, Player> hmHagan = new HashMap<UUID, Player>();
+	private HashMap<UUID, Player> hashMap = new HashMap<UUID, Player>();
 	@Test
 	public void test() {
 				
-		Player p1 = new Player("Emily", 1);
-		Player p2 = new Player("Elliot", 2);
+		Player player1 = new Player("Brendan", 1);
+		Player player2 = new Player("Baz", 2);
+		
 		Table t = new Table();
-		t.AddPlayerToTable(p1);
-		t.AddPlayerToTable(p2);
+		t.AddPlayerToTable(player1);
+		t.AddPlayerToTable(player2);
 		ArrayList<Player> playerArray = new ArrayList<>();
-		playerArray.add(p1);
-		playerArray.add(p2);
+		playerArray.add(player1);
+		playerArray.add(player2);
 		t.CreateDeck(eGameType.BLACKJACK);
 		GamePlayBlackJack gpbj = new GamePlayBlackJack(t);
 		
 		gpbj.AddPlayersToGame(playerArray);
 		
-		assertEquals(gpbj.GetPlayerInGame(p1), p1); 
+		assertEquals(gpbj.GetPlayerInGame(player1), player1); 
 		
-		gpbj.RemovePlayerFromGame(p1);
-		assertEquals(gpbj.GetPlayerInGame(p1), null);
+		gpbj.RemovePlayerFromGame(player1);
+		assertEquals(gpbj.GetPlayerInGame(player1), null);
 	}
 
 }
